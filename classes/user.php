@@ -1,0 +1,31 @@
+<?php
+
+class User{
+	private $id;
+	private $login;
+	private $password;
+
+	function __construct($id,$login,$password){
+		$this->id=$id;
+		$this->login=$login;
+		$this->password=$password;
+	}
+
+	function getId(){
+		return $this->id;
+	}
+
+	function getLogin(){
+		return $this->login;
+	}
+
+	function setLogin($login){
+		$this->login=login;
+	}
+	
+	function getPassword(){
+		return $this->password;
+	}
+}
+
+?>
