@@ -1,1 +1,6 @@
-document.querySelector(".right_side").style.display="none";
+let chat =document.querySelector(".right_side");
+chat.style.display="none";
+let chatBtn = document.querySelector('#chat');
+chatBtn.onclick= function(){
+    chat.style.display="block";
+}

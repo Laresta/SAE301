@@ -1,4 +1,6 @@
-<?php ob_start(); ?>
+<?php ob_start();
+require_once "./view/chats.php";
+?>
 <div class="window">
     <div class="left_side">
         <div class="left_sub_side">

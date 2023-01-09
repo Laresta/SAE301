@@ -1,7 +1,7 @@
 <?php 
 require_once "./view/menu.php";
 require_once "./view/footer.php";
-require_once "./view/chats.php";
+
 ?>
 
 <!DOCTYPE html>
@@ -16,6 +16,7 @@ require_once "./view/chats.php";
 <body>
     <?= @$menu?>
     <?= $content?>
+    
     <?= $footer ?>
     <script src="./dist/js/index.js"></script>
 </body>`
