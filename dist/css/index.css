@@ -1,0 +1,17 @@
+.accountDetails,footer,.formAcc{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+body{
+  margin: 0;
+}
+.accountDetails,.formAcc{
+    flex-direction: column;
+}
+.accountDetails{
+  height: 80vh;
+}
+footer{
+  height: 20vh;
+}
