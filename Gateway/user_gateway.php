@@ -7,30 +7,30 @@ class UserGateway{
 	private $con;
 
 	function __construct(){
-		$dsn="mysql:host=localhost;dbname=sae_301_duarte_pozknyakov";
+		$dsn="mysql:host=localhost;dbname=sae-301";
 		$user="root";
 		$password="";
 		$this->con=new Connection($dsn, $user, $password);
 	}
 
 	function addUser($login,$password){
-		$query = 'Insert into Utilisateur(login,password) values(:login,:password)';
+		$query = "Insert into Utilisateur(nom,motdepasse) values(:login,:password)";
 		try {
-			$this->con->executeQuery($query,array(':login'=>array($login,PDO::PARAM_STR),':password'=>array($password,PDO::PARAM_STR)));
+			$this->con->executeQuery($query,array(":login"=>array($login,PDO::PARAM_STR),":password"=>array($password,PDO::PARAM_STR)));
 			return 1;
 		} catch (\Exception $e) {
-			return $e->getCode();
+			echo $e->getCode();
 		}
 	}
 
 	function connect($login,$password){
-		$query= 'select id,login from Utilisateur where :login= login';
+		$query= 'select id,nom from Utilisateur where :login= nom';
 		$this->con->executeQuery($query,array(':login'=>array($login,PDO::PARAM_STR),':password'=>array($password,PDO::PARAM_STR)));
 	}
 
 	function findUserById($id){
 		$ListUser = [];
-		$query = 'Select login, password from Utilisateur where id= :id';
+		$query = 'Select nom, password from Utilisateur where id= :id';
 		$this->con->executeQuery($query,array(':id'=>array($id,PDO::PARAM_INT)));
 		$results = $this->con->getResults();
 		foreach ($results as $key) {
@@ -40,7 +40,7 @@ class UserGateway{
 	}
 
 	function findIdByLogin($login){
-		$query = 'Select * from Utilisateur where login= :login';
+		$query = 'Select * from Utilisateur where nom= :login';
 		$this->con->executeQuery($query,array(':login'=>array($login,PDO::PARAM_STR)));
 		$results = $this->con->getResults();
 		foreach ($results as $key) {
@@ -49,7 +49,7 @@ class UserGateway{
 	}
 
 	function changePassword($id,$password){
-		$query = 'Update Utilisateur Set password = :password where id= :id';
+		$query = 'Update Utilisateur Set motdepasse = :password where id= :id';
 		$this->con->executeQuery($query,array(':id'=>array($id,PDO::PARAM_INT),':password'=>array($password,PDO::PARAM_STR)));
 	}
 

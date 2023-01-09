@@ -15,3 +15,47 @@ body{
 footer{
   height: 20vh;
 }
+nav>ul{
+  margin: 0;
+  display: flex;
+  justify-content: space-between;
+  list-style: none;
+}
+.left_side{
+  width: 20%;
+}
+.left_side,.middle_side{
+  margin: 1em 1em;
+}
+.left_sub_side{
+  border:solid 1px;
+}
+.left_sub_side:nth-child(2){
+  margin-top: 010px;
+  height: auto;
+}
+.middle_side{
+  border: solid 1px ;
+  width: 80%;
+}
+.window{
+  display: flex;
+  height: 100vh;
+}
+h2,.nickname{
+  text-align: center;
+}
+.avatar{
+  width: 100%;
+  border-radius: 50%;
+}
+.friendAvatar{
+  width: 25%;
+}
+.friend_el{
+  display: flex;
+  justify-content: space-between;
+}
+.chatTabs{
+  display: flex;
+}

@@ -1,19 +1,19 @@
 <?php
 
-require "user_gateway.php";
-require 'user.php';
+require "./Gateway/user_gateway.php";
+require './classes/user.php';
 
 class User_Model {
 
-    private $gw
+    private $gw;
 
     function __construct(){
-        $this -> $gw = new UserGateway();
+        $this->gw = new UserGateway();
     }
 
     function ajoutUser($login,$password){
 		$mdp = password_hash($password, PASSWORD_DEFAULT);
-		if ($this->GW->addUser($login,$mdp)==1) {
+		if ($this->gw->addUser($login,$mdp)==1) {
 			return;
 		}else {
 			throw new Exception("Identifiant Existant", 2);
@@ -23,14 +23,13 @@ class User_Model {
 	}
 
 	function connect($login,$password){
-		$res=$this->GW->findIdByLogin($login);
-		$user = new User($res['idUser'],$res['login'],$res['password']);
+		$res=$this->gw->findIdByLogin($login);
+		$user = new User($res['idutilisateur'],$res['nom'],$res['motdepasse']);
 		if(password_verify($password,$user->getPassword())){
 			return $user->getId();
 		}
 		else{
 			throw new Exception("Identifiant ou Mot De Passe Incorrect", 1);
-
 		}
 	}
 
@@ -51,6 +50,6 @@ class User_Model {
 
 }
 
-}
+
 
 ?>
