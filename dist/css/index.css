@@ -24,7 +24,7 @@ nav>ul{
 .left_side{
   width: 20%;
 }
-.left_side,.middle_side{
+.left_side,.middle_side,.right_side{
   margin: 1em 1em;
 }
 .left_sub_side{
@@ -32,7 +32,10 @@ nav>ul{
 }
 .left_sub_side:nth-child(2){
   margin-top: 010px;
-  height: auto;
+  height: 200px;
+  overflow-y: scroll;
+  scrollbar-color: rebeccapurple green;
+  scrollbar-width: thin;
 }
 .middle_side{
   border: solid 1px ;
@@ -52,10 +55,27 @@ h2,.nickname{
 .friendAvatar{
   width: 25%;
 }
-.friend_el{
+.friend_el,.chat{
   display: flex;
   justify-content: space-between;
 }
 .chatTabs{
   display: flex;
+  justify-content: space-around;
+  border-bottom: 1px;
 }
+.right_side{
+  border: solid 1px;
+  flex-direction: column;
+  justify-content: space-between;
+}
+input[name="message"]{
+  width:80%;
+}
+/*@media screen and (max-width:768px) {
+  .right_side{
+    position: absolute;
+    width:100%;
+    bottom: 0;
+  }
+}*/

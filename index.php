@@ -31,6 +31,8 @@ switch($action){
     case "main":
         require_once "./view/main.php";
         break;
+    case "deconnection":
+        require_once "."
     default:
         if($_SESSION['id']){
             require_once "./view/main.php";    
