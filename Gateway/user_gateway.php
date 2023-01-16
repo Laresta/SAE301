@@ -1,11 +1,11 @@
 <?php
 
 require_once "./Connection.php";
+require './classes/user.php';
 
 class UserGateway{
 
 	private $con;
-
 	function __construct(){
 		$dsn="mysql:host=localhost;dbname=sae-301";
 		$user="root";

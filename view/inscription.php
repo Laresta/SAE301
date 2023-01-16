@@ -5,7 +5,7 @@
           <label for="login">Login</label>
           <input type="text" name="login" placeholder="login">
           <label for="mdp">Mot de passe</label>
-          <input type="text" name="mdp" placeholder="mot de passe">
+          <input type="password" name="mdp" placeholder="mot de passe">
           <label for="Cmdp">Mot de passe confirmation</label>
           <input type="text" name="email" placeholder="confirmation mot de passe">
           <input type="hidden" name="action" value="create_account">          

@@ -3,6 +3,7 @@
     <div><a href="#">Chat 1</a></div>
     <div><a href="#">Chat 2</a></div>
     <div><a href="#">Chat 3</a></div>
+    <div id="close_chat"><a href="#">X</a></div>
 
 </div>
 <div class="chat">

@@ -1,45 +1,62 @@
 .accountDetails,footer,.formAcc{
   display: flex;
   justify-content: center;
-  align-items: center;
+  
 }
+
 body{
   margin: 0;
 }
 .accountDetails,.formAcc{
     flex-direction: column;
+    align-items: center;
 }
 .accountDetails{
   height: 80vh;
 }
 footer{
   height: 20vh;
+  align-items: flex-end;
 }
 nav>ul{
-  margin: 0;
+  margin: 1em 0;
+  padding-inline-start: 0;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   list-style: none;
 }
-.left_side{
-  width: 20%;
-}
 .left_side,.middle_side,.right_side{
-  margin: 1em 1em;
+  margin: 1em 1em 0 0;
 }
+.left_side{
+  margin-left: 1em;
+}
+
 .left_sub_side{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
   border:solid 1px;
+  height: fit-content;
 }
-.left_sub_side:nth-child(2){
-  margin-top: 010px;
-  height: 200px;
-  overflow-y: scroll;
+.left_sub_side:not(:first-child){
+  margin-top: 1em;
+}
+.left_sub_side:last-child{
+  overflow-y: auto;
   scrollbar-color: rebeccapurple green;
   scrollbar-width: thin;
 }
 .middle_side{
   border: solid 1px ;
   width: 80%;
+  padding: 1em 1em;
+}
+.right_side{
+  border: solid 1px;
+  width: 20%;
+  flex-direction: column;
+  justify-content: space-between;
 }
 .window{
   display: flex;
@@ -49,6 +66,7 @@ h2,.nickname{
   text-align: center;
 }
 .avatar{
+  max-width: 128px;
   width: 100%;
   border-radius: 50%;
 }
@@ -61,14 +79,10 @@ h2,.nickname{
 }
 .chatTabs{
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   border-bottom: 1px;
 }
-.right_side{
-  border: solid 1px;
-  flex-direction: column;
-  justify-content: space-between;
-}
+
 input[name="message"]{
   width:80%;
 }

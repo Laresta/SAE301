@@ -1,7 +1,7 @@
 <?php
 
 require "./Gateway/user_gateway.php";
-require './classes/user.php';
+require_once './classes/user.php';
 
 class User_Model {
 
@@ -26,7 +26,7 @@ class User_Model {
 		$res=$this->gw->findIdByLogin($login);
 		$user = new User($res['idutilisateur'],$res['nom'],$res['motdepasse']);
 		if(password_verify($password,$user->getPassword())){
-			return $user->getId();
+			return [$user->getId(),$user->getLogin()];
 		}
 		else{
 			throw new Exception("Identifiant ou Mot De Passe Incorrect", 1);
@@ -34,18 +34,18 @@ class User_Model {
 	}
 
 	function trouvUser($id){
-		$user =$GW->findUserById($id);
+		$user =$this->gw->findUserById($id);
 		return $user;
 
 	}
 	function trouvId($login){
-		$id = $GW->findIdByLogin($login);
+		$id = $this->gw->findIdByLogin($login);
 		return $id;
 
 	}
 	function changerMdp($id,$password){
 
-		$GW->changePassword($id,$password);
+		$this->gw->changePassword($id,$password);
 	}
 
 }

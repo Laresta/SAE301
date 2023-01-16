@@ -6,9 +6,9 @@ require_once "./view/chats.php";
         <div class="left_sub_side">
             <h2>Mon Profil</h2>
             <img class="accAvatar avatar" src="./dist/images/avatar.png" alt="">
-            <p class="nickname">Nickname</p>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Error illum laboriosam non ullam, eveniet odit, quae quasi tenetur accusantium numquam sunt sit obcaecati vero suscipit odio, quibusdam impedit optio ratione!</p>
+            <p class="nickname"><?= $_SESSION['login']?></p>
         </div>
+        
         <div class="left_sub_side">
             <h2>Mes amis</h2>
             <div class="friend_el">
@@ -39,6 +39,6 @@ require_once "./view/chats.php";
     <div class="right_side"><?=$chat?></div>
 </div>
 <?php $content=ob_get_clean();
-$titre = "Main page";
+$title = "Main page";
 require_once "template.php";
 ?>
