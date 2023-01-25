@@ -12,14 +12,19 @@ switch($action){
     case "create_account":
     case "connect":
     case "disconnect":
+    case "del_user":
+    case "deleteMe":
         require_once "./controller/userController.php";
         break;
     case "main":
-        require_once "./view/main.php";
+    case "create_lobby":
+    case "create_party":
+    case 'create_game':
+        require_once "./controller/mainController.php";
         break;
     default:
-        if(isset($_SESSION['id'])){
-            require_once "./view/main.php";    
+        if(isset($_SESSION['id'])){   
+            require_once "./controller/mainController.php";    
         }
         else{
             require_once "./view/connection.php";

@@ -3,8 +3,8 @@
     <ul>
         <li><a href="?action=accueil">Accueil</a></li>
         <li><a href="#" id="chat">Chats</a></li>
-        <li><a href="?action=game_create">Creer un jeu</a></li>
-        <li><a href="?action=game_start">Lancer une partie</a></li>
+        <li><a href="?action=create_lobby">Lancer une partie</a></li>
+        <li><a href="?action=create_game">Creer un jeu</a></li>
         <?php
          if(isset($_SESSION['id'])){
         ?>

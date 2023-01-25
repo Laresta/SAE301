@@ -4,9 +4,18 @@ require_once "./view/chats.php";
 <div class="window">
     <div class="left_side">
         <div class="left_sub_side">
-            <h2>Mon Profil</h2>
-            <img class="accAvatar avatar" src="./dist/images/avatar.png" alt="">
-            <p class="nickname"><?= $_SESSION['login']?></p>
+            <div class="Profil">
+                <div>
+                    <h2>Mon Profil</h2>
+                    <img class="accAvatar avatar" src="./dist/images/avatar.png" alt="">
+                    <p class="nickname"><?= $_SESSION['login']?></p>
+                </div>
+                <div>
+                    <a href="./?action=del_user">Supprimer mon compte</a>
+                </div>
+            </div>
+    
+
         </div>
         
         <div class="left_sub_side">
@@ -35,7 +44,15 @@ require_once "./view/chats.php";
             </div>
         </div>
     </div>
-    <div class="middle_side">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi eligendi repellendus sunt quidem. Vitae commodi vel, aliquid libero eos suscipit molestias itaque cupiditate deleniti ad officiis nulla quis aspernatur maxime.</div>
+    <div class="middle_side">
+        <div class="legend"><p>Titre</p><p> desctiption</p><p> joueurs</p><br></div>
+        <?php 
+        foreach ($parties as $partie ) { ?>
+        <div class="legend">
+            <p><?= $partie->titre?></p><p> <?=$partie->resume;?></p><p><?=$partie->idpartie?></p><a href="./?action=join_party&idpartie=<?=$partie->idpartie?>"><button>Rejoundre</button></a>
+        </div>
+        <?php } ?>
+    </div> 
     <div class="right_side"><?=$chat?></div>
 </div>
 <?php $content=ob_get_clean();

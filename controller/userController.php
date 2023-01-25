@@ -25,7 +25,7 @@ switch ($action) {
             if(password_verify($password,$passCheck)){
                 $_SESSION['id']=$account->idutilisateur;
                 $_SESSION['login']=$login;
-                require_once "./view/main.php"; 
+                header("Location: ./?action=''");
             }else{
                 $erreurConnect = "le login ou mot de pas n'est pas correcte";
                 require_once "./view/connection.php";
@@ -40,6 +40,12 @@ switch ($action) {
         session_destroy();
         header("Location:./?action=''");
         break;
+    case "del_user":
+        require_once "./view/confirm_del_user.php";
+        break;
+    case "deleteMe":
+        $res= deleteMe($con,$_POST['idUser']);
+        if($res)header("Location:./?action=disconnect");
     default :
         break;
 

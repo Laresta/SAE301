@@ -1,7 +1,7 @@
 <?php
 
 require_once "bdd.php";
-$pass= "";
+
 function addUser($con,$login,$password){
 	$query = "Insert into utilisateur(login,password) values(?,?)";
 	try {
@@ -11,15 +11,6 @@ function addUser($con,$login,$password){
 	} catch (\Exception $e) {
 		echo $e->getCode();
 	}
-}
-
-
-function findUserById($con,$id){
-	$ListUser = [];
-	$query = $con->prepare('select login, password from utilisateur where id=?');
-	$ok = $query->execute([$id]);
-	$result = $query->fetchAll(PDO::FETCH_CLASS);
-	print_r($result);
 }
 
 function findUserByLogin($con,$login){
@@ -34,10 +25,10 @@ function findUserByLogin($con,$login){
 	}
 }
 
-
-function changePassword($con,$id,$password){
-	$query = 'Update utilisateur Set password = :password where id= :id';
-	$con->executeQuery($query,array(':id'=>array($id,PDO::PARAM_INT),':password'=>array($password,PDO::PARAM_STR)));
+function deleteMe($con,$idUser){
+	$query = 'delete from utilisateur where idutilisateur = ?';
+	$query = $con->prepare($query);
+	$query->execute([$idUser]);
+	return $query->rowCount();
 }
-
 ?>
