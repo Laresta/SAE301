@@ -1,5 +1,5 @@
 <?php ob_start();
-require_once "./view/chats.php";
+
 ?>
 <div class="window">
     <div class="left_side">
@@ -53,7 +53,6 @@ require_once "./view/chats.php";
         </div>
         <?php } ?>
     </div> 
-    <div class="right_side"><?=$chat?></div>
 </div>
 <?php $content=ob_get_clean();
 $title = "Main page";

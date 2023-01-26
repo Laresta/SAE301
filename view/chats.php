@@ -7,12 +7,12 @@
 
 </div>
 <div class="chat">
-    <input type="text" name="message" placeholder="Votre Message">
-    <input type="submit" value="">
+    <form id="messagerie" method="POST">
+        <input type="text" name="message" placeholder="Votre Message">
+        <input type="submit" value="">    
+    </form>
 </div>
 
 <?php $chat=ob_get_clean();
-
-
 
 ?>

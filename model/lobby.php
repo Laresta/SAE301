@@ -18,7 +18,7 @@ function createParty($con,$nomPartie,$desc,$nomGame){
         $maitrise = "insert into maitrise values (null,?,?);";
         $maitrise = $con->prepare($maitrise);
         $maitrise->execute([$idPartie,$idMeneur]);
-        if($query->rowCount()){
+        if($maitrise->rowCount()){
             echo 1;
             $query = "insert into meneur values (?);";
             $query = $con->prepare($query);
@@ -31,6 +31,13 @@ function getParties($con){
     $query = "select * from partie";
     $query = $con->prepare($query);
     $query->execute();
+    return $query->fetchAll(PDO::FETCH_CLASS);
+}
+
+function getParty($con,$idPartie){
+    $query = "select * from partie where idpartie = ?";
+    $query = $con->prepare($query);
+    $query->execute([$idPartie]);
     return $query->fetchAll(PDO::FETCH_CLASS);
 }
 ?>

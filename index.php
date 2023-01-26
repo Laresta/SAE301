@@ -20,7 +20,11 @@ switch($action){
     case "create_lobby":
     case "create_party":
     case 'create_game':
+    case 'join_party':
         require_once "./controller/mainController.php";
+        break;
+    case "chat":
+        require_once "./controller/gameController.php";
         break;
     default:
         if(isset($_SESSION['id'])){   
