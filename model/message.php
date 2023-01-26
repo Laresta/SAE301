@@ -10,7 +10,7 @@ function addMessageP($con,$message,$idScene,$image=null){
 function getMessagesPFromDatabase($con,$idScene){
     $query = "select * from message_prive where idscene = ?";
     $query = $con->prepare($query);
-    $query->execute([$idUser]);
+    $query->execute([$idScene]);
     return $query->fetchAll(PDO::FETCH_CLASS);
 
 }
