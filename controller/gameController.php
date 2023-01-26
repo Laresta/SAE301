@@ -1,32 +1,22 @@
 <?php 
-
-require_once "./Model/message.php";
-$con= bdd_connection();
-
-switch ($action) {
-    case 'chat':
-    // If a message was sent, save it to the database and broadcast it
-    if (isset($_POST['message'])) {
-        $message = $_POST['message'];
-        // Save the message to a database...
-        addMessageP($con,$message,$idScene,$image=null);
-        // Broadcast the message to other clients...
+    require_once "./Model/game.php";
+    $con = bdd_connection();
+    $index = 0;
+    if (isset($_GET['idpartie'])){
+        $idPartie = $_GET['idpartie'];
+    }
+    $listScenes = getScenes($con,$idPartie);
+    $idScene = $listScenes[$index]->idscene;
+    #ca ne trouve pas les 2 variables du dessus
+    switch ($action) {
+        case 'join_party':
+            require_once "./view/partie.php";
+            break;
+        default:
+            break;
     }
 
-    // Get all messages from the database
-    $messages = getMessagesPFromDatabase($con);
-    // Output the messages as a list
-    echo '<ul>';
-    foreach ($messages as $message) {
-        echo '<li>' . $message . '</li>';
-    }
-    echo '</ul>';
-    
-    break;
-    
-    default:
-    # code...
-    break;
-}
+
+
 
 ?>

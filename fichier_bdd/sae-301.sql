@@ -292,7 +292,7 @@ ALTER TABLE `meneur`
 -- Ограничения внешнего ключа таблицы `message_jdr`
 --
 ALTER TABLE `message_jdr`
-  ADD CONSTRAINT `fk_message_narration_personnage1` FOREIGN KEY (`idpersonnage`) REFERENCES `personnage0` (`idpersonnage`),
+  ADD CONSTRAINT `fk_message_narration_personnage1` FOREIGN KEY (`idpersonnage`) REFERENCES `personnage` (`idpersonnage`),
   ADD CONSTRAINT `fk_message_narration_scene1` FOREIGN KEY (`idscene`) REFERENCES `scene` (`idscene`),
   ADD CONSTRAINT `fk_message_narration_utilisateur1` FOREIGN KEY (`utilisateur_idutilisateur`) REFERENCES `utilisateur` (`idutilisateur`) ON DELETE NO ACTION;
 
@@ -321,8 +321,8 @@ ALTER TABLE `pj`
 -- Ограничения внешнего ключа таблицы `pnj`
 --
 ALTER TABLE `pnj`
-  ADD CONSTRAINT `fk_maitrise_has_personnage_maitrise1` FOREIGN KEY (`idmaitrise`) REFERENCES `maitrise123` (`idmaitrise`),
-  ADD CONSTRAINT `fk_maitrise_has_personnage_personnage1` FOREIGN KEY (`idpersonnage`) REFERENCES `personnage0` (`idpersonnage`);
+  ADD CONSTRAINT `fk_maitrise_has_personnage_maitrise1` FOREIGN KEY (`idmaitrise`) REFERENCES `maitrise` (`idmaitrise`),
+  ADD CONSTRAINT `fk_maitrise_has_personnage_personnage1` FOREIGN KEY (`idpersonnage`) REFERENCES `personnage` (`idpersonnage`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -6,9 +6,12 @@
     <div id="close_chat"><a href="#">X</a></div>
 
 </div>
+<div class="messagesChat">
+
+</div>
 <div class="chat">
     <form id="messagerie" method="POST">
-        <input type="text" name="message" placeholder="Votre Message">
+        <input type="text" id="message" name="message" placeholder="Votre Message">
         <input type="submit" value="">    
     </form>
 </div>

@@ -21,26 +21,33 @@ leftSubSides.forEach(leftSubSide => {
 
 
 
-console.log(document.getElementById('messagerie'));
-/*.addEventListener('submit', function(e) {
+document.getElementById('messagerie').addEventListener('submit', function(e) {
     e.preventDefault();
     sendMessage();
-});*/
+});
 
 // Send message function
 function sendMessage() {
-    let message = document.querySelector('input[name="message"]').value;
-
+    let message = document.querySelector('#message').value;
+    let data = new FormData();
+    data.set('message',message );
     // Use the fetch() API to send a POST request to the server
-    fetch('./?action=chat', {
+    fetch('./?action=sendChat', {
         method: 'POST',
-        body: JSON.stringify({ message: message })
+        mode: "same-origin",
+        credentials: "same-origin",
+        body:data,
     })
     .then(function(response) {
-        // Clear the message input and focus it
+        console.log(response.json);
         document.querySelector('input[name="message"]').value = '';
         document.querySelector('input[name="message"]').focus();
+    }).then((res)=>{
+        console.log('Success:',res);
+    }).catch((error)=>{
+        console.error('Error:',error);
     });
+    console.log(data);
 }
 
 // Listen for new messages
@@ -51,6 +58,6 @@ setInterval(function() {
     })
     .then(function(messages) {
         // Update the chat display with the new messages
-        document.querySelector('#chat').innerHTML = messages;
+        document.querySelector('.messagesChat').innerHTML = messages;
     });
 }, 1000);

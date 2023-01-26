@@ -6,7 +6,6 @@ if(isset($_REQUEST['action'])){
 else{
     $action= "";
 }
-
 switch($action){
     case "inscription":
     case "create_account":
@@ -20,11 +19,14 @@ switch($action){
     case "create_lobby":
     case "create_party":
     case 'create_game':
-    case 'join_party':
         require_once "./controller/mainController.php";
         break;
-    case "chat":
+    case 'join_party':
         require_once "./controller/gameController.php";
+        break;
+    case "sendChat":
+    case "chat":
+        require_once "./controller/chatController.php";
         break;
     default:
         if(isset($_SESSION['id'])){   

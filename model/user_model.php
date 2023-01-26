@@ -25,6 +25,14 @@ function findUserByLogin($con,$login){
 	}
 }
 
+function findLoginByid($con,$idUser){
+	$query = 'Select * from utilisateur where idutilisateur= ?';
+	$query = $con->prepare($query);
+	$query->execute([$idUser]);
+	$result = $query->fetchAll(PDO::FETCH_CLASS);
+	return $result;
+}
+
 function deleteMe($con,$idUser){
 	$query = 'delete from utilisateur where idutilisateur = ?';
 	$query = $con->prepare($query);
