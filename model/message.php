@@ -1,10 +1,16 @@
 <?php 
 
 require_once "bdd.php";
-function addMessageP($con,$message,$idScene,$image=null){
+function addMessagePr($con,$message,$idScene,$image=null){
     $query = "Insert into message_prive values(null,?,now(),?,?,?)";
 	$query= $con->prepare($query);
 	$query->execute([$message,$idScene,$_SESSION['id'],$image]);
+	return $query->rowCount();
+}
+function addMessagePu($con,$message,$idScene,$idPers=null,$image=null){
+    $query = "Insert into message_jdr values(null,?,now(),?,?,?,?)";
+	$query= $con->prepare($query);
+	$query->execute([$message,$idScene,$idPers,$_SESSION['id'],$image]);
 	return $query->rowCount();
 }
 function getMessagesPFromDatabase($con,$idScene){

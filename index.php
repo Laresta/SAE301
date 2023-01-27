@@ -18,14 +18,18 @@ switch($action){
     case "main":
     case "create_lobby":
     case "create_party":
-    case 'create_game':
         require_once "./controller/mainController.php";
         break;
-    case 'join_party':
+    case 'join_party_choice':    
+    case 'join_party_play':
+    case 'getPreviousScene':
+    case 'getNextScene':
         require_once "./controller/gameController.php";
         break;
-    case "sendChat":
-    case "chat":
+    case "sendChatP":
+    case "sendChatN":
+    case "chatP":
+    case "chatN":
         require_once "./controller/chatController.php";
         break;
     default:

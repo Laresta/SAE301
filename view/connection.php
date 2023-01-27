@@ -1,6 +1,6 @@
 <?php ob_start();?>
       <div class="accountDetails login">
-        <h2>Bienvenue sur XXXjdr.com <br> Connectez-vous</h2>
+        <h3>Bienvenue sur XXXjdr.com <br> Connectez-vous</h3>
         <?php if(isset($erreurConnect))echo $erreurConnect;?>
         <form class="formAcc" method="post">
           <label for="login">Login</label>

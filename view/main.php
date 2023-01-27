@@ -2,19 +2,11 @@
 
 ?>
 <div class="window">
-    <div class="left_side">
-        <div class="left_sub_side">
-            <div class="Profil">
-                <div>
-                    <h2>Mon Profil</h2>
-                    <img class="accAvatar avatar" src="./dist/images/avatar.png" alt="">
-                    <p class="nickname"><?= $_SESSION['login']?></p>
-                </div>
-                <div>
-                    <a href="./?action=del_user">Supprimer mon compte</a>
-                </div>
-            </div>
+            
     
+    <!--<div class="left_side">
+        <div class="left_sub_side">
+            
 
         </div>
         
@@ -43,13 +35,16 @@
                 <img src="./dist/images/avatar.png" class="friendAvatar avatar" alt="">
             </div>
         </div>
-    </div>
+    </div>-->
     <div class="middle_side">
-        <div class="legend"><p>Titre</p><p> desctiption</p><p> joueurs</p><br></div>
+        <h3>Choisissez votre partie</h3>
+        <div class="legend"><p>Titre</p><p> desctiption</p><p> joueurs</p><p>Connection</p></div>
         <?php 
-        foreach ($parties as $partie ) { ?>
+        foreach ($parties as $partie ) { 
+            $nbplayers=countPlayers($con,$partie->idpartie)->nbPlayers;
+            ?>
         <div class="legend">
-            <p><?= $partie->titre?></p><p> <?=$partie->resume;?></p><p><?=$partie->idpartie?></p><a href="./?action=join_party&idpartie=<?=$partie->idpartie?>"><button>Rejoundre</button></a>
+            <p><?= $partie->titre?></p><p> <?=$partie->resume;?></p><p><?=$nbplayers?></p><a href="./?action=join_party_choice&idpartie=<?=$partie->idpartie?>"><button>Rejoundre</button></a>
         </div>
         <?php } ?>
     </div> 

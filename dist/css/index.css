@@ -7,6 +7,12 @@
 body{
   margin: 0;
 }
+.center{
+  height: 80vh;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
 .accountDetails,.formAcc{
     flex-direction: column;
     align-items: center;
@@ -26,7 +32,7 @@ nav>ul{
   list-style: none;
 }
 .left_side,.middle_side,.right_side{
-  margin: 1em 1em 0 0;
+  margin: 0 1em 0 0;
 }
 .left_side{
   margin-left: 1em;
@@ -48,8 +54,9 @@ nav>ul{
   scrollbar-width: thin;
 }
 .middle_side{
+  margin: 1em 1em;
   border: solid 1px ;
-  width: 80%;
+  width: 100%;
   padding: 1em 1em;
 }
 .right_side{
@@ -57,13 +64,29 @@ nav>ul{
   width: 20%;
   flex-direction: column;
   justify-content: space-between;
+
+}
+.messagesChatP,.messagesChatN{
+  height: 100%;
+  max-height: 858px;
+  overflow-y: auto;
 }
 .window{
   display: flex;
   height: 100vh;
 }
-h2,.nickname{
+h2,h3,.nickname{
   text-align: center;
+}
+button{
+  border: blue solid 0.2em;
+  background-color: blue;
+  border-radius: 15%;
+  color:antiquewhite;
+  cursor: pointer;
+}
+h3{
+  font-size: 64px;
 }
 .avatar{
   max-width: 128px;
@@ -82,13 +105,19 @@ h2,.nickname{
   justify-content: space-between;
   border-bottom: 1px;
 }
+.chatsTabs{
+  height: 100%;
+}
 
 input[name="message"]{
   width:80%;
 }
 .legend{
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-around;
+}
+.legend *{
+  width: 25%;
 }
 .Profil{
   height: 100%;
@@ -101,9 +130,16 @@ input[name="message"]{
 .partie{
   border: solid;
   height: 80vh;
-  width: 80%;
   margin: 0 1em;
   padding: 0 1em;
+}
+.scene{
+  width: 80%;
+}
+.menuMeneur{
+  margin: 0 1em;
+  display: flex;
+  justify-content: space-between;
 }
 .mainPartie{
   display: flex;

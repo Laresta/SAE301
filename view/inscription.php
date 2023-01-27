@@ -1,6 +1,6 @@
 <?php ob_start(); ?>
 <div class="accountDetails login">
-        <h2>Bienvenue sur XXXjdr.com <br> Inscrivez-vous</h2>
+        <h3>Bienvenue sur XXXjdr.com <br> Inscrivez-vous</h3>
         <form class="formAcc" method="post">
           <label for="login">Login</label>
           <input type="text" name="login" placeholder="login">
